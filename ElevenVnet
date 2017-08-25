@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "name": {
-            "type": "FakeNet"
+        "FakeNet": {
+            "type": "String"
         },
         "location": {
             "type": "westeurope"
@@ -13,8 +13,8 @@
             "type": "String"
         },
         "subnetName": {
-            "defaultValue": "subnet-1",
-            "type": "FakeNetSub"
+            "defaultValue": "Fake-Sub",
+            "type": "String"
         },
         "subnetAddressPrefix": {
             "defaultValue": "11.11.11.0/24",
