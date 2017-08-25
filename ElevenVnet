@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "FakeNet"
+        },
+        "location": {
+            "type": "westeurope"
+        },
+        "addressPrefix": {
+            "defaultValue": "11.11.11.0/24",
+            "type": "String"
+        },
+        "subnetName": {
+            "defaultValue": "subnet-1",
+            "type": "FakeNetSub"
+        },
+        "subnetAddressPrefix": {
+            "defaultValue": "11.11.11.0/24",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('name')]",
+            "apiVersion": "2016-06-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('addressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[parameters('subnetName')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnetAddressPrefix')]"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
